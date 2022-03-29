@@ -45,5 +45,9 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.180"
+  },
+  "author": {
+    "email": "v.nikopolidi@gmail.com",
+    "name": "Vitaliy Nikopolidi"
   }
 }

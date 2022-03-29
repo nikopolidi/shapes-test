@@ -104,8 +104,8 @@ function App() {
 
   const drawParalellogramCenter = (): ReactNode | null => {
     if (!parallelogramCenter) return null;
-    const [a, b, c, d] = lines;
-    
+    const [a, b, c] = lines;
+
     const area = Math.abs(
       (b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)
     );
@@ -116,7 +116,7 @@ function App() {
           x={parallelogramCenter.x - 20}
           y={parallelogramCenter.y}
           text={area.toString()}
-          width={40}
+          width={60}
           align="center"
           fill="white"
         ></Text>
@@ -143,7 +143,6 @@ function App() {
   };
 
   const onClickReset = () => {
-    // console.log("onClickReset", onClickReset);
     setPoints([]);
   };
 
