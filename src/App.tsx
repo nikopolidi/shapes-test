@@ -28,22 +28,7 @@ class CirclePoint {
     Object.assign(this, input);
   }
 }
-const calcAngle = ([p2, p1, p3]: Coords[]) => {
-  const numerator: number =
-    p2.y * (p1.x - p3.x) + p1.y * (p3.x - p2.x) + p3.y * (p2.x - p1.x);
-  const denominator: number =
-    (p2.x - p1.x) * (p1.x - p3.x) + (p2.y - p1.y) * (p1.y - p3.y);
-  const ratio: number = numerator / denominator;
 
-  const angleRad: number = Math.atan(ratio);
-  let angleDeg: number = (angleRad * 180) / Math.PI;
-
-  if (angleDeg < 0) {
-    angleDeg = 180 + angleDeg;
-  }
-
-  return angleDeg;
-};
 const calcLineVector = (
   a: Coords,
   b: Coords | undefined,
@@ -120,16 +105,7 @@ function App() {
   const drawParalellogramCenter = (): ReactNode | null => {
     if (!parallelogramCenter) return null;
     const [a, b, c, d] = lines;
-    let angle = calcAngle([d, a, b]);
-    // let sideLength = calcDistance(a, b);
-    // let baseLength = calcDistance(b, c);
-    // let baseSlope = calcSope(b, c);
-    if (angle > 90) {
-      angle = calcAngle([c, d, a]);
-      // sideLength = calcDistance(c, d);
-      // baseLength = calcDistance(d, a);
-    }
-    // const height = baseLength * Math.sin(sideLength);
+    
     const area = Math.abs(
       (b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)
     );
